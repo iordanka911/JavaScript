@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+    <h1>JS DOM</h1>
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad dolorum nisi consectetur suscipit cum ratione cumque vero quasi, praesentium blanditiis voluptate velit deleniti iure natus numquam laudantium soluta doloribus.</p>
+   <section id="superHeroSection">
+       <h3 id="superhero-list-heading">
+           Superheros
+       </h3>
+       <ul id="superhero-list">
+           <li class="good">Superman</li>
+           <li class="good">Capitan America</li>
+           <li class="evil">Batman</li>
+       </ul>
+
+       <button id="add-superhero" onclick="addSuperhero()">Add</button>
+       <label for="superhero-name">Add Superhero</label>
+       <input type="text" id="superhero-name"/>
+   </section>
+</div>
+   <script>
+     let headingElement=document.getElementById('superhero-list-heading');
+    
+    headingElement.textContent='Pesho';
+    console.log(headingElement.textContent);
+    headingElement.textContent+='from MCU and DCU';
+
+    let superHeroSection=document.getElementById('superHeroSection');
+    console.log(superHeroSection.textContent);
+    
+    //superHeroSection.textContent='Pesho';
+    let  siteWrapper=document.getElementById('wrapper');
+    siteWrapper.style.
+    backgroundColor='lightblue';
+    //Add value from input
+    function addSuperhero(){
+       let superHeroInputElement=document.getElementById('superhero-name');
+       console.log(superHeroInputElement.value);
+       // Delete value when add button is clicked
+
+       superHeroInputElement.value='';
+    }
+
+    // Targeting elements by class, return HTML collection
+    let goodSuperHerostLiElements=document.getElementsByClassName('good');
+    console.log(goodSuperHerostLiElements);
+    goodSuperHerostLiElements[0].textContent+=' The stgrongest Avenger';
+    for(const heroElement of goodSuperHerostLiElements){
+        console.log('good superhero: ', heroElement.textContent);
+    }//This work in Judge
+    // Targeting with CSS selector, returns node list
+    let allSuperHerosLiElements=document.querySelectorAll('#superhero-list li');
+    allSuperHerosLiElements.forEach((x)=>// doesn't work in judge
+    {
+        console.log(x.textContent)
+    });
+    // Convert HTMLCollection and NodeList to JS Array
+    let goodSuperHeros=Array.from(goodSuperHerostLiElements);
+    console.log(goodSuperHeros);
+
+    
+  </script>
+</body>
+</html>
